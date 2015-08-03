@@ -405,6 +405,7 @@ static CFIndex WriteDataToStream(NSData* data, CFWriteStreamRef stream)
         target = [target stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
         targetURL = [[self.commandDelegate getCommandInstance:@"File"] fileSystemURLforLocalPath:target].url;
     } else {
+        target = [target stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         targetURL = [NSURL URLWithString:target];
     }
 
